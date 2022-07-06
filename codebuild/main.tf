@@ -160,7 +160,7 @@ resource "aws_iam_role_policy" "role_policy" {
       "Effect": "Allow",
       "Action": [
         "ecr:*",
-        "ecs:*"
+        "ec2:*"
       ],
       "Resource": "*"
     },
@@ -196,36 +196,6 @@ resource "aws_iam_role_policy" "role_policy" {
       "Effect": "Allow",
       "Action" : [
         "dynamodb:*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:AuthorizeSecurityGroupEgress",
-        "ec2:AuthorizeSecurityGroupIngress",
-        "ec2:CreateSecurityGroup",
-        "ec2:DeleteSecurityGroup",
-        "ec2:RevokeSecurityGroupEgress",
-        "ec2:RevokeSecurityGroupIngress",
-        "ec2:DeleteNetworkInterface",
-        "ec2:DescribeNetworkInterfaces",
-        "ec2:DescribeAvailabilityZones",
-        "ec2:CreateNetworkInterface",
-        "ec2:DescribeDhcpOptions",
-        "ec2:CreateTags",
-        "ec2:DeleteTags",
-        "ec2:DescribeTags",
-        "ec2:DescribeSubnets",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeVpcs",
-        "ec2:DescribeAddresses",
-        "ec2:AllocateAddress",
-        "ec2:DescribeInstances",
-        "ec2:AssociateAddress",
-        "ec2:DescribeNatGateways",
-        "ec2:CreateNatGateway",
-        "ec2:DeleteNatGateway"
       ],
       "Resource": "*"
     },
