@@ -316,14 +316,20 @@ resource "aws_iam_role_policy" "role_policy" {
         "iam:GetRolePolicy",
         "iam:PassRole",
         "iam:ListInstanceProfilesForRole",
-        "iam:ListRolePolicies",
+        "iam:ListRolePolicies"
+      ],
+      "Resource": "arn:aws:iam::*:role/*"
+    },
+    {
+      "Effect":"Allow",
+      "Action": [
         "iam:CreateServiceSpecificCredential",
         "iam:DeleteServiceSpecificCredential",
         "iam:ResetServiceSpecificCredential",
         "iam:UpdateServiceSpecificCredential",
         "iam:ListServiceSpecificCredential"
       ],
-      "Resource": "arn:aws:iam::*:role/*"
+      "Resource": "*"
     },
     {
       "Action": "iam:CreateServiceLinkedRole",
