@@ -108,7 +108,7 @@ resource "aws_instance" "my_Amazon_Linux" {
   #!/bin/bash
   yum -y update
   yum -y install httpd
-  echo "<h2>WebServer USE BUDE UKRAINA ${var.webserv}</h2><br>Build by Terraform!"  >  /var/www/html/index.html
+  echo "<h2>WebServer USE BUDE UKRAINA!!!!! ${var.webserv}</h2><br>Build by Terraform!"  >  /var/www/html/index.html
   sudo service httpd start
   chkconfig httpd on
   EOF
