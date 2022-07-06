@@ -18,5 +18,5 @@ phases:
     commands:
       - echo "Build infrastructure"
       - terraform init
-      - terraform plan -var="app_image=${REPO_NAME}:${TAG}" -no-color -input=false -out plan.out
+      - terraform plan -var="webserv=${CODEBUILD_RESOLVED_SOURCE_VERSION}" -no-color -input=false -out plan.out
       - terraform apply -auto-approve -no-color -input=false plan.out

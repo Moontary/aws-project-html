@@ -73,3 +73,7 @@ variable "git_trigger_event" {
 variable "branch_pattern" {
   default = "^refs/heads/main$"
 }
+
+variable "webserv" {
+  default = "AAAAABBBBCCCC"
+}
