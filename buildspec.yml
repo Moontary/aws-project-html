@@ -18,5 +18,6 @@ phases:
     commands:
       - echo "Build infrastructure"
       - terraform init
+      - terraform destroy
       - terraform plan -var="webserv=${CODEBUILD_RESOLVED_SOURCE_VERSION}" -no-color -input=false -out plan.out
       - terraform apply -auto-approve -no-color -input=false plan.out

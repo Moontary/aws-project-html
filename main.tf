@@ -96,6 +96,20 @@ data "aws_ami" "latest_amazon_linux" {
   }
 }
 
+data "template_file" "app" {
+  template = file("data.tpl")
+  vars = {
+    webserver = var.webserv
+  }
+}
+
+data "template_file" "hello" {
+  template = file("hello.tpl")
+  vars = {
+    webserver = var.webserv
+  }
+}
+
 resource "aws_instance" "my_Amazon_Linux" {
 
   count                  = length(var.publicSubnetCIDR)
@@ -104,15 +118,8 @@ resource "aws_instance" "my_Amazon_Linux" {
   subnet_id              = aws_subnet.publicsubnet[count.index].id
   vpc_security_group_ids = [aws_security_group.SecurityGroup_EC2inPublicSubnet.id]
 
-  user_data = <<-EOF
-  #!/bin/bash
-  yum -y update
-  yum -y install httpd
-  echo "<h2>WebServer USE BUDE UKRAINA!!!!! ${var.webserv}</h2><br>Build by Terraform!"  >  /var/www/html/index.html
-  sudo service httpd start
-  chkconfig httpd on
-  EOF
 
+  user_data = data.template_file.hello.rendered
 
   #tags are using variables.tf file
   tags = merge(var.common_tags, { Name = "Html-page-server" })
@@ -195,3 +202,4 @@ resource "aws_lb_target_group_attachment" "alb_tg_attachment" {
   target_id = aws_instance.my_Amazon_Linux[count.index].id
 
 }
+

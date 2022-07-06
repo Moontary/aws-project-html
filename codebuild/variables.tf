@@ -75,5 +75,5 @@ variable "branch_pattern" {
 }
 
 variable "webserv" {
-  default = "AAAAABBBBCCCC"
+  default = ""
 }
