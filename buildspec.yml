@@ -17,7 +17,6 @@ phases:
   build:
     commands:
       - echo "Build infrastructure"
-      - cd terraform
       - terraform init
       - terraform plan -var="app_image=${REPO_NAME}:${TAG}" -no-color -input=false -out plan.out
       - terraform apply -auto-approve -no-color -input=false plan.out
