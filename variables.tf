@@ -58,7 +58,7 @@ variable "buildspec_file" {
 }
 
 variable "github_oauth_token" {
-  type = string
+  type    = string
   default = ""
 }
 
@@ -67,7 +67,7 @@ variable "repo_url" {
 }
 
 variable "git_trigger_event" {
-  default  = "PUSH"
+  default = "PUSH"
 }
 
 variable "branch_pattern" {
