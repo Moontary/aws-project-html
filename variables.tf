@@ -52,3 +52,24 @@ variable "app_port" {
   #description = "Port exposed by the docker image to redirect traffic to"
   default = 80
 }
+
+variable "buildspec_file" {
+  default = "buildspec.yml"
+}
+
+variable "github_oauth_token" {
+  type = string
+  default = ""
+}
+
+variable "repo_url" {
+  default = "https://github.com/Moontary/aws-project-html"
+}
+
+variable "git_trigger_event" {
+  default  = "PUSH"
+}
+
+variable "branch_pattern" {
+  default = "^refs/heads/main$"
+}
